@@ -1,4 +1,4 @@
-import './css/CreateAnAlert.css'
+import '../css/CreateAnAlert.css'
 
 function CreateAnAlert() {
     return (
