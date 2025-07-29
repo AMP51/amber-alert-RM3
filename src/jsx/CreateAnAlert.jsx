@@ -34,9 +34,9 @@ function CreateAnAlert() {
             </div>
 
         </>
-    );
+    )
 }
 
-export default CreateAnAlert;
+export default CreateAnAlert
 
 
