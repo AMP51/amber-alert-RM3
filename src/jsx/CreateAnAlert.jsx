@@ -20,8 +20,7 @@ function CreateAnAlert() {
                 <input type = "text" className="name-input" defaultValue=""/>
 
                 <label className="time-label">Time Of Missing Disappearance</label>
-                <input type="time" className="time-input" />
-
+                <TimePicker label="time of disappearance" value = {value} onChange={(newValue) => setValue(newValue)} />
                 <label className="description-label">Description of Person and Situation</label>
                 <input type="text" className="description-input" defaultValue=""/>
 
