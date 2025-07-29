@@ -3,30 +3,30 @@ import '../css/CreateAnAlert.css'
 function CreateAnAlert() {
     return (
         <>
-            <div style="background-color: AE0000;">
+            <div className="header-container">
                 {/*  <img src={Logo} className="logo" alt="Amber Alert logo" /> */}
-                <h1>
+                <h1 className="header-container">
                     Create An Alert
                 </h1>
 
 
             </div>
 
-            <div>
+            <div className="body-container">
 
 
 
-                <label for = "tName">Name Of Missing Person</label>
-                <input type = "text" id="tName" name="tName"> </input>
+                <label className="name-label">Name Of Missing Person</label>
+                <input type = "text" className="name-input" defaultValue=""/>
 
-                <label for="tTime">Time Of Missing Disappearance</label>
-                <input type="time" id="tTime" name="tTime"></input>
+                <label className="time-label">Time Of Missing Disappearance</label>
+                <input type="time" className="time-input" />
 
-                <label for="tDescription">Description of Person and Situation</label>
-                <input type="text" id="tDescription" name="tDescription"> </input>
+                <label className="description-label">Description of Person and Situation</label>
+                <input type="text" className="description-input" defaultValue=""/>
 
-                <label for="tImage">Description of Person and Situation</label>
-                <input type="image" id="tImage" name="tImage"> </input>
+                <label className="image-label">Image of person</label>
+                <input type="image" className="name-input"/>
 
                 <button> Post This Alert</button>
                 <button> Clear All Fields</button>
