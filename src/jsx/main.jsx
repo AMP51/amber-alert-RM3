@@ -8,9 +8,9 @@ import Login from './Login.jsx';
 import Register from './Register.jsx';
 import ForgotPassword from './ForgotPassword.jsx';
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AmberAlert />} />
