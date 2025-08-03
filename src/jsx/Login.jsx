@@ -1,8 +1,9 @@
 import '../components/lrfLayout.css';
 import logo from '../assets/logo.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="lrf-container">
@@ -30,7 +31,9 @@ function Login() {
             </div>
           </div>
 
-          <button className="lrf-button">
+          <button
+            className="lrf-button"
+            onClick={() => navigate('/admin-dashboard')} >
             <span className="button-text">Login</span>
           </button>
 
