@@ -11,14 +11,7 @@ function UserDashboard() {
   const handleCreateAlert = () => {
     navigate('/create-an-alert');
   };
-
-  const handleLogout = () => {
-    navigate('/');
-  };
-
-  const handleProfile = () => {
-    navigate('/profile');
-  };
+  
 
   return (
     <div className="amber-alert-page">
@@ -29,7 +22,7 @@ function UserDashboard() {
         <div className="nav-links">
           <Link to="/user-dashboard" className="nav-link">Home</Link>
           <Link to="/report" className="nav-link">Report</Link>
-          <Link to="/forums" className="nav-link">Forums</Link>
+          <Link to="/forum" className="nav-link">Forums</Link>
           <Link to="/about" className="nav-link">About</Link>
         </div>
       </nav>
