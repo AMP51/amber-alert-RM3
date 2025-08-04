@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="amberalert-footer">
       <div className="footer-content">
-        <p>© 2025 AMBER Alert. All rights reserved.</p>
+        <p>© 2025 Amber Alert. All rights reserved.</p>
       </div>
     </footer>
   );
