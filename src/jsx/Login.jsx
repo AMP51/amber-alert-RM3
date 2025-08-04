@@ -1,4 +1,4 @@
-import '../components/lrfLayout.css';
+import '../css/lrfLayout.css';
 import logo from '../assets/logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ function Login() {
 
           <button
             className="lrf-button"
-            onClick={() => navigate('/admin-dashboard')} >
+            onClick={() => navigate('/user-dashboard')} >
             <span className="button-text">Login</span>
           </button>
 
