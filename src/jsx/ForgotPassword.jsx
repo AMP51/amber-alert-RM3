@@ -1,4 +1,4 @@
-import '../components/lrfLayout.css';
+import '../css/lrfLayout.css';
 import logo from '../assets/logo.jpg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';

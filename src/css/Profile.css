@@ -1,0 +1,61 @@
+.form-area {
+    flex: 1;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.form-center {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #AE0000;
+    margin-bottom: 24px;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-label {
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+
+.form-input {
+    padding: 10px 14px;
+    font-size: 16px;
+    font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline-offset: 2px;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: #AE0000;
+    outline: none;
+}
+
+.profile-submit-btn {
+    width: 200px;
+    height: 48px;
+    font-size: 18px;
+    font-weight: 700;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.profile-submit-btn:hover {
+    background-color: #8B0000;
+    transition: background-color 0.3s ease;
+}
