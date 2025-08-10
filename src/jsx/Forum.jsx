@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/ForumPage.css';
 
-// Import Header & Footer components
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -81,7 +81,7 @@ function ForumPage() {
         </div>
       </div>
 
-      {/* Footer at the bottom */}
+
       <Footer />
     </div>
   );

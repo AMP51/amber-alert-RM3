@@ -1,4 +1,4 @@
-/* Reset and body */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@ body, html {
   font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-/* Forum page container */
+
 .forum-page {
   background: linear-gradient(#ffffff, #ffffff, #642c2c);
   min-height: 100vh;
@@ -17,11 +17,11 @@ body, html {
   position: relative;
 }
 
-/* Navbar - same style as first page */
+
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: #b30000; /* Solid red like first page */
+  background-color: #b30000; 
   display: flex;
   align-items: center;
   padding: 0 40px;
@@ -32,17 +32,17 @@ body, html {
   box-sizing: border-box;
 }
 
-/* Logo styled like first page */
+
 .logo {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1px;
   color: white;
   user-select: none;
-  margin-right: auto; /* push nav links to right */
+  margin-right: auto; 
 }
 
-/* Navigation links */
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -62,7 +62,7 @@ body, html {
   text-decoration: underline;
 }
 
-/* Logout button like dashboard */
+
 .logout-btn {
   padding: 8px 16px;
   background-color: white;
@@ -79,7 +79,7 @@ body, html {
   background-color: #f0f0f0;
 }
 
-/* Content area */
+
 .content {
   display: flex;
   gap: 40px;
@@ -88,7 +88,7 @@ body, html {
   flex: 1;
 }
 
-/* Main forum panel */
+
 .main-forum {
   flex: 3;
   background: #ffffff;
@@ -97,21 +97,21 @@ body, html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Section title */
+
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-/* Threads container */
+
 .threads {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Single thread style */
+
 .thread {
   display: flex;
   justify-content: space-between;
@@ -125,14 +125,14 @@ body, html {
   background-color: #f9f9f9;
 }
 
-/* Reply user text */
+
 .reply-user {
   font-size: 0.85rem;
   text-align: right;
   color: #888;
 }
 
-/* Pagination */
+
 .pagination {
   margin-top: 30px;
   display: flex;
@@ -153,7 +153,7 @@ body, html {
   background-color: #990000;
 }
 
-/* Forum buttons below threads */
+
 .forum-buttons {
   margin-top: 40px;
   display: flex;
@@ -177,7 +177,6 @@ body, html {
   background-color: #990000;
 }
 
-/* Sidebar */
 .sidebar {
   flex: 1;
   background: #ffffff;
@@ -203,7 +202,6 @@ body, html {
   color: #333;
 }
 
-/* Footer styled like dashboard footer */
 .footer {
   width: 100%;
   background-color: #b30000;
@@ -216,7 +214,7 @@ body, html {
   box-sizing: border-box;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
