@@ -11,7 +11,11 @@ function UserDashboard() {
   const handleCreateAlert = () => {
     navigate('/create-an-alert');
   };
-  
+
+  const handleReportingTip = () => {
+    navigate('/reporting-tip');
+  };
+
 
   return (
     <div className="amber-alert-page">
@@ -21,7 +25,7 @@ function UserDashboard() {
       <nav className="navigation">
         <div className="nav-links">
           <Link to="/user-dashboard" className="nav-link">Home</Link>
-          <Link to="/report" className="nav-link">Report</Link>
+          <Link to="/reporting-tip" className="nav-link">Report</Link>
           <Link to="/forum" className="nav-link">Forums</Link>
           <Link to="/about" className="nav-link">About</Link>
         </div>
@@ -29,16 +33,14 @@ function UserDashboard() {
 
       <main className="main-content">
 
-        <aside className="sidebar">
-          <div className="sidebar-buttons">
-            <button className="sidebar-btn gray"><span className="btn-text">Contact Authorities</span></button>
-            <button className="sidebar-btn red" onClick={handleCreateAlert}><span className="btn-text"> Create an alert</span></button>
-            <button className="sidebar-btn red"><span className="btn-text bold small">View all Alerts</span></button>
-            <button className="sidebar-btn red"><span className="btn-text bold">Report Tip</span></button>
-            <button className="sidebar-btn gray"><span className="btn-text small">View all reports</span></button>
-            <button className="sidebar-btn gray"><span className="btn-text">Helpful Resources</span></button>
-          </div>
-        </aside>
+        <div className="sidebar-buttons">
+          <button className="sidebar-btn red"><span className="btn-text">Contact Authorities</span></button>
+          <button className="sidebar-btn red" onClick={handleCreateAlert}><span className="btn-text"> Create an alert</span></button>
+          <button className="sidebar-btn red"><span className="btn-text bold small">View all Alerts</span></button>
+          <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text bold">Report Tip</span></button>
+          <button className="sidebar-btn red"><span className="btn-text small">View all reports</span></button>
+          <button className="sidebar-btn red"><span className="btn-text">Helpful Resources</span></button>
+        </div>
 
         <div className="content-area">
           <div className="content-center">

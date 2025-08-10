@@ -16,6 +16,7 @@ import UserDashboard from './UserDashboard.jsx';
 import CreateAnAlert from './CreateAnAlert.jsx';
 import Profile from './Profile.jsx';
 import Forum from './Forum.jsx';
+import ReportingTip from './ReportingTip.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -30,6 +31,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/create-an-alert" element={<CreateAnAlert />} />
         <Route path="/forum" element={<Forum />} />
+        <Route path="/reporting-tip" element={<ReportingTip />} />
 
       </Routes>
     </BrowserRouter>
