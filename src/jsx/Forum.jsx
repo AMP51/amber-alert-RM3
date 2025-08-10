@@ -1,23 +1,16 @@
 import React from 'react';
 import '../css/ForumPage.css';
 
+// Import Header & Footer components
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 function ForumPage() {
   return (
     <div className="forum-page">
+      {/* Header at the top */}
+      <Header />
 
-      <nav className="navbar">
-        <div className="logo">AMBER ALERT</div>
-        <ul className="nav-links">
-          <li>Home</li>
-          <li>Report</li>
-          <li>Forums</li>
-          <li>Tips</li>
-          <li>Alert</li>
-        </ul>
-        <button className="logout-btn">Logout</button>
-      </nav>
-
-    
       <div className="content">
         <div className="main-forum">
           <h2>Amber Alert System — General Discussions</h2>
@@ -82,11 +75,14 @@ function ForumPage() {
           <ul>
             <li>Accident near Main St @ 3PM - 5 min ago</li>
             <li>Accident near Main St @ 3PM - 20 min ago</li>
-            <li>Accident near Main St @ 3PM -33 min ago</li>
+            <li>Accident near Main St @ 3PM - 33 min ago</li>
             <li>Accident near Main St @ 3PM - 2 min ago</li>
           </ul>
         </div>
       </div>
+
+      {/* Footer at the bottom */}
+      <Footer />
     </div>
   );
 }

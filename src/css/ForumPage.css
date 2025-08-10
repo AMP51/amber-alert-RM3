@@ -1,149 +1,230 @@
-body {
+/* Reset and body */
+body, html {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
+/* Forum page container */
 .forum-page {
+  background: linear-gradient(#ffffff, #ffffff, #642c2c);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
 }
 
+/* Navbar - same style as first page */
 .navbar {
+  width: 100%;
+  height: 70px;
+  background-color: #b30000; /* Solid red like first page */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #b30000;
+  padding: 0 40px;
   color: white;
-  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-.navbar .logo {
-  font-weight: bold;
-  font-size: 20px;
+/* Logo styled like first page */
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  user-select: none;
+  margin-right: auto; /* push nav links to right */
 }
 
+/* Navigation links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
   cursor: pointer;
+  font-weight: 500;
+  transition: text-decoration 0.3s ease;
+  color: white;
 }
 
+.nav-links li:hover {
+  text-decoration: underline;
+}
+
+/* Logout button like dashboard */
 .logout-btn {
-  background: #fff;
-  border: none;
+  padding: 8px 16px;
+  background-color: white;
   color: #b30000;
-  padding: 5px 10px;
-  border-radius: 5px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
 }
 
+.logout-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Content area */
 .content {
   display: flex;
-  padding: 20px;
-  gap: 20px;
+  gap: 40px;
+  padding: 40px;
+  box-sizing: border-box;
+  flex: 1;
 }
 
+/* Main forum panel */
 .main-forum {
   flex: 3;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.forum-box {
-  background-color: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
+/* Section title */
 .section-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
+/* Threads container */
 .threads {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
+/* Single thread style */
 .thread {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
 }
 
+.thread:hover {
+  background-color: #f9f9f9;
+}
+
+/* Reply user text */
 .reply-user {
+  font-size: 0.85rem;
   text-align: right;
-  font-size: 0.9em;
-  color: #666;
+  color: #888;
 }
 
+/* Pagination */
 .pagination {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   gap: 10px;
-  align-items: center;
 }
 
 .pagination button {
-  padding: 5px 10px;
-  background: #eee;
+  padding: 8px 14px;
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
+  background-color: #b30000;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+.pagination button:hover {
+  background-color: #990000;
+}
+
+/* Forum buttons below threads */
 .forum-buttons {
-  margin-top: 15px;
+  margin-top: 40px;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .resources-btn,
 .view-alerts-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.resources-btn {
-  background-color: #ccc;
-}
-
-.view-alerts-btn {
   background-color: #b30000;
-  color: white;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.resources-btn:hover,
+.view-alerts-btn:hover {
+  background-color: #990000;
+}
+
+/* Sidebar */
 .sidebar {
   flex: 1;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  height: fit-content;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h4 {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .sidebar li {
   margin-bottom: 10px;
-  font-size: 0.95em;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Footer styled like dashboard footer */
+.footer {
+  width: 100%;
+  background-color: #b30000;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: auto;
+  font-size: 14px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
