@@ -36,9 +36,9 @@ function UserDashboard() {
         <div className="sidebar-buttons">
           <button className="sidebar-btn red"><span className="btn-text">Contact Authorities</span></button>
           <button className="sidebar-btn red" onClick={handleCreateAlert}><span className="btn-text"> Create an alert</span></button>
-          <button className="sidebar-btn red"><span className="btn-text bold small">View all Alerts</span></button>
-          <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text bold">Report Tip</span></button>
-          <button className="sidebar-btn red"><span className="btn-text small">View all reports</span></button>
+          <button className="sidebar-btn red"><span className="btn-text">View all Alerts</span></button>
+          <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text">Report Tip</span></button>
+          <button className="sidebar-btn red"><span className="btn-text ">View all reports</span></button>
           <button className="sidebar-btn red"><span className="btn-text">Helpful Resources</span></button>
         </div>
 
