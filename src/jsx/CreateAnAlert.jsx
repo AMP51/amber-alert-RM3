@@ -1,20 +1,23 @@
 import '../css/CreateAnAlert.css'
+import Header from "../components/Header.jsx";
+import React from "react";
+import Footer from "../components/Footer.jsx";
 
 function CreateAnAlert() {
     return (
         <>
-            <div className="header-container">
-                {/*  <img src={Logo} className="logo" alt="Amber Alert logo" /> */}
+        {/*   <div className="header-container">
+                  <img src={Logo} className="logo" alt="Amber Alert logo" />
                 <h1 className="header-container">
                     Create An Alert
                 </h1>
 
 
-            </div>
+            </div>*/}
 
             <div className="body-container">
 
-
+                <Header />
 
                 <label className="name-label">Name Of Missing Person</label>
                 <input type = "text" className="name-input" defaultValue=""/>
@@ -32,7 +35,7 @@ function CreateAnAlert() {
                 <button className="return-home-button"> Return to Home</button>
 
             </div>
-
+            <Footer />
         </>
     )
 }

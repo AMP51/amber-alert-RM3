@@ -25,7 +25,9 @@ body {
 }
 
 .body-container{
-
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
 }
 
 .name-label{
