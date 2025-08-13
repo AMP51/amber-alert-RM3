@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
+import axios from 'axios';
 
 function Header() {
 
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:8080/logout", {}, { withCredentials: true });
+      localStorage.removeItem("role");
+      navigate("/");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   const handleProfile = () => {
