@@ -4,9 +4,22 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/Dashboard.css';
 import '../css/lrfLayout.css';
+import  { useEffect } from "react";
+import axios from "axios";
 
 function UserDashboard() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await axios.get("http://localhost:8080/me", { withCredentials: true });
+      } catch (err) {
+        navigate("/login");
+      }
+    };
+    checkAuth();
+  }, [navigate]);
 
   const handleCreateAlert = () => {
     navigate('/create-an-alert');

@@ -20,8 +20,8 @@ function AmberAlert() {
                     <span className="button-text">Get Started</span>
                 </button>
             </div>
-            <footer class="amberalert-footer">
-                <div class="footer-content">
+            <footer className="amberalert-footer">
+                <div className="footer-content">
                     <p>&copy; 2025 Amber Alert. All rights reserved.</p>
 
                 </div>
