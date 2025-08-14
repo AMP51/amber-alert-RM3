@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./db/db");
 const port = process.env.PORT;
 const authRoutes = require("./routes/authRoutes");
+const seedUsers = require('./seeders/seedUsers');
+
 
 const app = express();
 
@@ -25,15 +27,19 @@ app.use(cookieParser());
 
 app.use("/", authRoutes);
 
-
 app.get("/", (req, res) => {
   res.json({ status: "database is connected (Amber Alert)" });
 });
 
+(async () => {
+  try {
+    await connectDB();
+    await seedUsers();
 
-connectDB();
-
-
-app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
-});
+    app.listen(port, () => {
+      console.log(`Amber Alert server running on port: ${port}`);
+    });
+  } catch (err) {
+    console.error("server failed to start:", err);
+  }
+})();

@@ -1,12 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
-const userSchema = require("../schemas/userSchema");
 const bcrypt = require("bcryptjs");
-const {
-  createTable,
-  checkRecordExists,
-  insertRecord,
-} = require("../utils/sqlFunctions");
+const { checkRecordExists, insertRecord } = require("../utils/sqlFunctions");
 
 const generateAccessToken = (userId, role) => {
   return jwt.sign({ userId, role }, process.env.JWT_SECRET, { expiresIn: "1d" });
@@ -20,6 +15,7 @@ const register = async (req, res) => {
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
+
   const user = {
     userId: uuidv4(),
     name,
@@ -30,8 +26,6 @@ const register = async (req, res) => {
   };
 
   try {
-    await createTable(userSchema);
-
     const userAlreadyExists = await checkRecordExists("users", "email", email);
     if (userAlreadyExists) {
       return res.status(409).json({ error: "Email already exists" });
@@ -48,7 +42,7 @@ const register = async (req, res) => {
     });
 
     res.status(201).json({
-      message: "User created successfully!",
+      message: "User created successfully",
       userId: user.userId,
       email: user.email,
       role: user.role,
