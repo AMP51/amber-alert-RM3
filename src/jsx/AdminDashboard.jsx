@@ -1,9 +1,25 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/AdminDashboard.css';
+import { useEffect } from "react";
+import axios from "axios";
 
 function AdminDashboardPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await axios.get("http://localhost:8080/me", { withCredentials: true });
+      } catch (err) {
+        navigate("/login");
+      }
+    };
+    checkAuth();
+  }, [navigate]);
+
   return (
     <div className="admin-dashboard-page">
       <Header />
