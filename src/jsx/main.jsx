@@ -17,6 +17,7 @@ import CreateAnAlert from './CreateAnAlert.jsx';
 import Profile from './Profile.jsx';
 import Forum from './Forum.jsx';
 import ReportingTip from './ReportingTip.jsx';
+import ContactAuthorities from './ContactAuthorities.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -32,6 +33,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/create-an-alert" element={<CreateAnAlert />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/reporting-tip" element={<ReportingTip />} />
+        <Route path="/contact-authorities" element={<ContactAuthorities />} />
+
 
       </Routes>
     </BrowserRouter>
