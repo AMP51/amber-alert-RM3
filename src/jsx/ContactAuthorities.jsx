@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import  { useEffect } from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/ContactAuthorities.css';
@@ -18,25 +19,21 @@ function ContactAuthorities() {
         navigate('/thank-you'); // redirect after submission
     };
 
-    const handleLogout = async () => {
-        try {
-            await axios.post("http://localhost:8080/logout", {}, { withCredentials: true });
-            navigate("/login");
-        } catch (err) {
-            console.error("Logout failed", err);
-        }
+    useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await axios.get("http://localhost:8080/me", { withCredentials: true });
+      } catch (err) {
+        navigate("/login");
+      }
     };
+    checkAuth();
+  }, [navigate]);
     
 
     return (
         <div className="contact-page">
             <Header />
-
-             <div className="logout-container">
-                <button className="logout-btn" onClick={handleLogout}>
-                    Logout
-                </button>
-            </div>
 
             <div className="contact-container">
                 <div className="contact-form">
