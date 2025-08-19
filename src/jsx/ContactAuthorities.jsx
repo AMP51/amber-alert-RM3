@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/ContactAuthorities.css';
 import logo from '../assets/logo.jpg';
+import axios from 'axios';
 
 function ContactAuthorities() {
     const navigate = useNavigate();
@@ -17,9 +18,25 @@ function ContactAuthorities() {
         navigate('/thank-you'); // redirect after submission
     };
 
+    const handleLogout = async () => {
+        try {
+            await axios.post("http://localhost:8080/logout", {}, { withCredentials: true });
+            navigate("/login");
+        } catch (err) {
+            console.error("Logout failed", err);
+        }
+    };
+    
+
     return (
         <div className="contact-page">
             <Header />
+
+             <div className="logout-container">
+                <button className="logout-btn" onClick={handleLogout}>
+                    Logout
+                </button>
+            </div>
 
             <div className="contact-container">
                 <div className="contact-form">
