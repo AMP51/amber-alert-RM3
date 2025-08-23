@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import '../css/AdminDashboard.css';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import '../../css/admin/AdminDashboard.css';
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -19,6 +19,10 @@ function AdminDashboardPage() {
     };
     checkAuth();
   }, [navigate]);
+
+  const handleCreateAnAlert = () => {
+    navigate('/admin-alert');
+  };
 
   return (
     <div className="admin-dashboard-page">
@@ -39,7 +43,10 @@ function AdminDashboardPage() {
         <section className="dashboard-section">
           <div className="section-header">
             <h2>Alert Management</h2>
-            <button className="section-btn">View All Alerts</button>
+            <div className="section-buttons">
+              <button className="section-btn" onClick={handleCreateAnAlert}>Create An Alert</button>
+              <button className="section-btn">View All Alerts</button>
+            </div>
           </div>
           <div className="alert-table">
             <div className="alert-row">

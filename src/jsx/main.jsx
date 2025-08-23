@@ -7,14 +7,19 @@ import '../css/ForumPage.css';
 import '../components/Footer.jsx'
 import '../components/Header.jsx'
 
-import AmberAlert from './AmberAlert.jsx';
+{/* AuthPages */ }
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import ForgotPassword from './ForgotPassword.jsx';
-import AdminDashboard from './AdminDashboard.jsx';
+import Profile from './Profile.jsx';
+
+{/* Admin */ }
+import AdminDashboard from './admin/AdminDashboard.jsx';
+import AdminAlert from './admin/AdminAlert.jsx';
+
+import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import CreateAnAlert from './CreateAnAlert.jsx';
-import Profile from './Profile.jsx';
 import Forum from './Forum.jsx';
 import ReportingTip from './ReportingTip.jsx';
 import ContactAuthorities from './ContactAuthorities.jsx';
@@ -23,12 +28,19 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AmberAlert />} />
+
+        {/* AuthRoutes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/profile" element={<Profile />} />
+
+        {/* AdminRoutes */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin-alert" element={<AdminAlert />} />
+
+        {/* SortThisRoutesOut */}
+        <Route path="/" element={<AmberAlert />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/create-an-alert" element={<CreateAnAlert />} />
         <Route path="/forum" element={<Forum />} />
