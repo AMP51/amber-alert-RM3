@@ -36,24 +36,22 @@ function AdminDashboardPage() {
 
   const handleCreateAnAlert = () => navigate('/admin-alert');
 
-  const getStatusDot = (status) => {
-    switch (status) {
-      case "active":
-        return <span className="status-dot status-active">● Active</span>;
-      case "resolved":
-        return <span className="status-dot status-resolved">● Resolved</span>;
-      case "pending":
-        return <span className="status-dot status-pending">● Pending</span>;
-      default:
-        return status;
-    }
-  };
-
   return (
     <div className="admin-dashboard-page">
       <Header />
 
       <main className="admin-dashboard-content">
+        {/* Alert Management */}
+        <section className="dashboard-section">
+          <div className="section-header">
+            <h2>Admin Alert Management</h2>
+            <div className="section-buttons">
+              <button className="section-btn" onClick={handleCreateAnAlert}>Create An Alert</button>
+              <button className="section-btn" onClick={() => navigate(`/admin-view/all/alerts`)}>View All Alerts</button>
+            </div>
+          </div>
+        </section>
+
         {/* Dashboard Stats */}
         <section className="dashboard-grid">
           <div className="dashboard-box">
@@ -61,43 +59,12 @@ function AdminDashboardPage() {
             <p className="box-count">{alerts.filter(a => a.status === "active").length}</p>
           </div>
           <div className="dashboard-box">
+            <h3 className="box-title">Resolved Alerts</h3>
+            <p className="box-count">{alerts.filter(a => a.status === "resolved").length}</p>
+          </div>
+          <div className="dashboard-box">
             <h3 className="box-title">Reported Tips</h3>
             <p className="box-count"></p>
-          </div>
-        </section>
-
-        {/* Alert Management */}
-        <section className="dashboard-section">
-          <div className="section-header">
-            <h2>Alert Management</h2>
-            <div className="section-buttons">
-              <button className="section-btn" onClick={handleCreateAnAlert}>Create An Alert</button>
-              <button className="section-btn">View All Alerts</button>
-            </div>
-          </div>
-
-          <div className="alert-table">
-            {alerts.length === 0 ? (
-              <p>No alerts available.</p>
-            ) : (
-              alerts.map((alert, index) => (
-                <div className="alert-row" key={alert.alertId}>
-                  <div className="alert-cell">{index + 1}</div>
-                  <div className="alert-cell">{alert.name}</div>
-                  <div className="alert-cell">{getStatusDot(alert.status)}</div>
-                  <div className="alert-cell actions">
-                    <button
-                      className="action-btn" onClick={() => navigate(`/view-alert/${alert.alertId}/view`)}>
-                      View
-                    </button>
-                    <button
-                      className="action-btn" onClick={() => navigate(`/update-alert/${alert.alertId}/edit`)}>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              ))
-            )}
           </div>
         </section>
       </main>
