@@ -1,14 +1,15 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import '../../css/admin/AdminDashboard.css';
-import { useEffect } from "react";
-import axios from "axios";
+import axios from 'axios';
 
 function AdminDashboardPage() {
   const navigate = useNavigate();
+  const [alerts, setAlerts] = useState([]);
 
+  {/* Check if admin is logged in */ }
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -20,8 +21,32 @@ function AdminDashboardPage() {
     checkAuth();
   }, [navigate]);
 
-  const handleCreateAnAlert = () => {
-    navigate('/admin-alert');
+  {/* Fetch alerts */ }
+  useEffect(() => {
+    const fetchAlerts = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/alerts", { withCredentials: true });
+        setAlerts(res.data || []);
+      } catch (err) {
+        console.error("Failed to fetch alerts:", err);
+      }
+    };
+    fetchAlerts();
+  }, []);
+
+  const handleCreateAnAlert = () => navigate('/admin-alert');
+
+  const getStatusDot = (status) => {
+    switch (status) {
+      case "active":
+        return <span className="status-dot status-active">● Active</span>;
+      case "resolved":
+        return <span className="status-dot status-resolved">● Resolved</span>;
+      case "pending":
+        return <span className="status-dot status-pending">● Pending</span>;
+      default:
+        return status;
+    }
   };
 
   return (
@@ -29,17 +54,19 @@ function AdminDashboardPage() {
       <Header />
 
       <main className="admin-dashboard-content">
+        {/* Dashboard Stats */}
         <section className="dashboard-grid">
           <div className="dashboard-box">
             <h3 className="box-title">Active Alerts</h3>
-            <p className="box-count">5</p>
+            <p className="box-count">{alerts.filter(a => a.status === "active").length}</p>
           </div>
           <div className="dashboard-box">
             <h3 className="box-title">Reported Tips</h3>
-            <p className="box-count">12</p>
+            <p className="box-count"></p>
           </div>
         </section>
 
+        {/* Alert Management */}
         <section className="dashboard-section">
           <div className="section-header">
             <h2>Alert Management</h2>
@@ -48,25 +75,29 @@ function AdminDashboardPage() {
               <button className="section-btn">View All Alerts</button>
             </div>
           </div>
-          <div className="alert-table">
-            <div className="alert-row">
-              <div className="alert-cell">101</div>
-              <div className="alert-cell">Ashton Petersen</div>
-              <div className="alert-cell status-active">🔴 Active</div>
-              <div className="alert-cell actions">
-                <button className="action-btn">View</button>
-                <button className="action-btn">Edit</button>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="dashboard-section">
-          <div className="section-header">
-            <h2>Reported Tips</h2>
-            <div className="tip-buttons">
-              <button className="section-btn">View All Tips</button>
-            </div>
+          <div className="alert-table">
+            {alerts.length === 0 ? (
+              <p>No alerts available.</p>
+            ) : (
+              alerts.map((alert, index) => (
+                <div className="alert-row" key={alert.alertId}>
+                  <div className="alert-cell">{index + 1}</div>
+                  <div className="alert-cell">{alert.name}</div>
+                  <div className="alert-cell">{getStatusDot(alert.status)}</div>
+                  <div className="alert-cell actions">
+                    <button
+                      className="action-btn" onClick={() => navigate(`/view-alert/${alert.alertId}/view`)}>
+                      View
+                    </button>
+                    <button
+                      className="action-btn" onClick={() => navigate(`/update-alert/${alert.alertId}/edit`)}>
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </section>
       </main>
