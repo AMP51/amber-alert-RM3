@@ -111,7 +111,6 @@ function UpdateAlert() {
                 <select value={status} onChange={e => setStatus(e.target.value)}>
                     <option value="active">Active</option>
                     <option value="resolved">Resolved</option>
-                    <option value="pending">Pending</option>
                 </select>
 
                 <button type="submit" className="post-alert-button">Update Alert</button>
