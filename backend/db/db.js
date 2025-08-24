@@ -2,6 +2,8 @@ const mysql = require("mysql2");
 const config = require("./config");
 const userSchema = require("../schemas/userSchema");
 const adminAlertSchema = require("../schemas/adminAlertSchema");
+const messageSchema = require("../schemas/messageSchema");
+const chatMessagesSchema = require("../schemas/chatMessagesSchema");
 
 const connectDB = () => {
   return new Promise((resolve, reject) => {
@@ -27,8 +29,20 @@ const connectDB = () => {
             if (alertErr) return reject(alertErr);
             console.log("'alerts' table created");
 
-            conn.release();
-            resolve(pool);
+            {/* message table */ }
+            conn.query(messageSchema, (messageErr) => {
+              if (tblErr) return reject(messageErr);
+              console.log("'message' table created");
+
+              {/* chat table */ }
+              conn.query(chatMessagesSchema, (chatMessageErr) => {
+                if (chatMessageErr) return reject(chatMessageErr);
+                console.log("'chatMessage' table created");
+
+                conn.release();
+                resolve(pool);
+              });
+            });
           });
         });
       });
