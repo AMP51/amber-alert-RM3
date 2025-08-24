@@ -15,7 +15,9 @@ import Profile from './Profile.jsx';
 
 {/* Admin */ }
 import AdminDashboard from './admin/AdminDashboard.jsx';
-import AdminAlert from './admin/AdminAlert.jsx';
+import AdminAlert from './admin/Alerts/AdminAlert.jsx';
+import UpdateAlert from './admin/Alerts/UpdateAlert.jsx';
+import ViewAlert from './admin/Alerts/ViewAlert.jsx';
 
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
@@ -38,6 +40,8 @@ createRoot(document.getElementById('root')).render(
         {/* AdminRoutes */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/admin-alert" element={<AdminAlert />} />
+        <Route path="/update-alert/:alertId/edit" element={<UpdateAlert />} />
+        <Route path="/view-alert/:alertId/view" element={<ViewAlert />} />
 
         {/* SortThisRoutesOut */}
         <Route path="/" element={<AmberAlert />} />
