@@ -4,6 +4,7 @@ const userSchema = require("../schemas/userSchema");
 const adminAlertSchema = require("../schemas/adminAlertSchema");
 const messageSchema = require("../schemas/messageSchema");
 const chatMessagesSchema = require("../schemas/chatMessagesSchema");
+const contactSchema = require("../schemas/contactSchema");
 
 const connectDB = () => {
   return new Promise((resolve, reject) => {
@@ -39,8 +40,14 @@ const connectDB = () => {
                 if (chatMessageErr) return reject(chatMessageErr);
                 console.log("'chatMessage' table created");
 
+                 {/* contact table */ }
+                conn.query(contactSchema, (contactErr) => {
+                  if (contactErr) return reject(contactErr);
+                  console.log("'contact' table created");
+
                 conn.release();
                 resolve(pool);
+              });
               });
             });
           });
