@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/Dashboard.css';
 import '../css/lrfLayout.css';
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 function UserDashboard() {
@@ -21,48 +21,40 @@ function UserDashboard() {
     checkAuth();
   }, [navigate]);
 
-  const handleCreateAlert = () => {
-    navigate('/create-an-alert');
-  };
-
   const handleReportingTip = () => {
     navigate('/reporting-tip');
   };
 
+  const handleForum = () => {
+    navigate('/forum');
+  };
+
+  const handleViewAllAlerts = () => {
+    navigate('/view/all/alerts');
+  };
   const handleContactAuthorities = () => {
     navigate('/contact-authorities');
   };
-
 
   return (
     <div className="amber-alert-page">
       {/* Header */}
       <Header />
 
-      <nav className="navigation">
-        <div className="nav-links">
-          <Link to="/user-dashboard" className="nav-link">Home</Link>
-          <Link to="/reporting-tip" className="nav-link">Report</Link>
-          <Link to="/forum" className="nav-link">Forums</Link>
-          <Link to="/about" className="nav-link">About</Link>
-        </div>
-      </nav>
-
       <main className="main-content">
 
         <div className="sidebar-buttons">
-          <button className="sidebar-btn red" onClick={handleContactAuthorities}><span className="btn-text">Contact Authorities</span></button>
-          <button className="sidebar-btn red" onClick={handleCreateAlert}><span className="btn-text"> Create an alert</span></button>
-          <button className="sidebar-btn red"><span className="btn-text">View all Alerts</span></button>
+          <button className="sidebar-btn red" onClick={handleViewAllAlerts}><span className="btn-text">View all Alerts</span></button>
+          <button className="sidebar-btn red" onClick={handleForum}><span className="btn-text">Forum</span></button>
           <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text">Report Tip</span></button>
-          <button className="sidebar-btn red"><span className="btn-text ">View all reports</span></button>
+          <button className="sidebar-btn red" onClick={handleContactAuthorities}><span className="btn-text">Contact Authorities</span></button>
           <button className="sidebar-btn red"><span className="btn-text">Helpful Resources</span></button>
+          <button className="sidebar-btn red"><span className="btn-text">About Us</span></button>
         </div>
 
         <div className="content-area">
           <div className="content-center">
             <h2 className="welcome-title">Welcome to Amber Alert</h2>
-
 
             <div className="info-grid">
               <div className="info-card">

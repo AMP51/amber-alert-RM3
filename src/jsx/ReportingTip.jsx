@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../css/CreateAnAlert.css';
 
 function CreateAnAlert() {
   const [formData, setFormData] = useState({
