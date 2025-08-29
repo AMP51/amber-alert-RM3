@@ -20,7 +20,8 @@ import AdminAlert from './admin/Alerts/AdminAlert.jsx';
 import UpdateAlert from './admin/Alerts/UpdateAlert.jsx';
 import ViewAlert from './admin/Alerts/ViewAlert.jsx';
 import Message from './admin/Message/Message.jsx';
-
+import Contact from './admin/contact/Contact.jsx';
+import ContactDetails from './admin/contact/ContactDetails.jsx';
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import CreateAnAlert from './CreateAnAlert.jsx';
@@ -46,6 +47,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/update-alert/:alertId/edit" element={<UpdateAlert />} />
         <Route path="/view-alert/:alertId/view" element={<ViewAlert />} />
         <Route path="/admin/message" element={<Message />} />
+<Route path="/admin/contact" element={<Contact />} />
+  <Route path="/admin/contact/:id" element={<ContactDetails />} />
 
         {/* SortThisRoutesOut */}
         <Route path="/" element={<AmberAlert />} />
