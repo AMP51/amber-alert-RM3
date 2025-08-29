@@ -24,10 +24,11 @@ import Contact from './admin/contact/Contact.jsx';
 import ContactDetails from './admin/contact/ContactDetails.jsx';
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
-import CreateAnAlert from './CreateAnAlert.jsx';
 import Forum from './Forum.jsx';
 import ReportingTip from './ReportingTip.jsx';
 import ContactAuthorities from './ContactAuthorities.jsx';
+import UserAlerts from './UserAlerts.jsx';
+import UserAlertDetails from './UserAlertDetails.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -47,16 +48,17 @@ createRoot(document.getElementById('root')).render(
         <Route path="/update-alert/:alertId/edit" element={<UpdateAlert />} />
         <Route path="/view-alert/:alertId/view" element={<ViewAlert />} />
         <Route path="/admin/message" element={<Message />} />
-<Route path="/admin/contact" element={<Contact />} />
-  <Route path="/admin/contact/:id" element={<ContactDetails />} />
+        <Route path="/admin/contact" element={<Contact />} />
+        <Route path="/admin/contact/:id" element={<ContactDetails />} />
 
         {/* SortThisRoutesOut */}
         <Route path="/" element={<AmberAlert />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/create-an-alert" element={<CreateAnAlert />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/reporting-tip" element={<ReportingTip />} />
         <Route path="/contact-authorities" element={<ContactAuthorities />} />
+        <Route path="/view/all/alerts" element={<UserAlerts />} />
+        <Route path="/alerts/:alertId" element={<UserAlertDetails />} />
 
 
       </Routes>

@@ -54,7 +54,7 @@ function ViewAllAlerts() {
     const formatDateTime = (dateString) => {
         if (!dateString) return "";
         const date = new Date(dateString);
-        return date.toLocaleString(); 
+        return date.toLocaleString();
     };
 
     return (
@@ -112,8 +112,16 @@ function ViewAllAlerts() {
                                 <td>{getStatusDot(alert.status)}</td>
                                 <td>{formatDateTime(alert.timeOfDisappearance)}</td>
                                 <td>
-                                    <button onClick={() => navigate(`/view-alert/${alert.alertId}/view`)}>View</button>
-                                    <button onClick={() => navigate(`/update-alert/${alert.alertId}/edit`)}>Edit</button>
+                                    <button
+                                        style={{ color: "#e74c3c" }}
+                                        onClick={() => navigate(`/view-alert/${alert.alertId}/view`)}>View
+                                    </button>
+
+                                    <button
+                                        style={{ color: "#e74c3c" }}
+                                        onClick={() => navigate(`/update-alert/${alert.alertId}/edit`)}>Edit
+                                    </button>
+
                                 </td>
                             </tr>
                         ))}
