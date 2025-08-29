@@ -1,6 +1,6 @@
 const adminAlertSchema = `
 CREATE TABLE IF NOT EXISTS admin_alerts (
-category ENUM('missing_person', 'missing_vehicle', 'suspicious_activity') NOT NULL,
+category ENUM('missing_person', 'missing_vehicle', 'suspicious_activity', 'other') NOT NULL,
 status ENUM('active', 'resolved') DEFAULT 'active',
   alertId CHAR(36) PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
