@@ -1,5 +1,5 @@
 const chatMessagesSchema = `
-CREATE TABLE chat_messages (
+CREATE TABLE IF NOT EXISTS chat_messages (
     messageId VARCHAR(36) PRIMARY KEY,
     userId VARCHAR(36),
     content TEXT NOT NULL,
