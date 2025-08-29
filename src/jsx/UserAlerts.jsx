@@ -11,36 +11,49 @@ import "../css/UserAlerts.css";
 
 function UserAlerts() {
   const [alerts, setAlerts] = useState([]);
+  const [filteredAlerts, setFilteredAlerts] = useState([]);
   const [stats, setStats] = useState({
     total: 0,
     active: 0,
-    resolved: 0,
     byCategory: {}
   });
+  const [categoryFilter, setCategoryFilter] = useState("all");
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAlerts = async () => {
       try {
         const res = await axios.get("http://localhost:8080/alerts", { withCredentials: true });
-        setAlerts(res.data);
 
-        const total = res.data.length;
-        const active = res.data.filter(a => a.status === "active").length;
-        const resolved = res.data.filter(a => a.status === "resolved").length;
-        const byCategory = res.data.reduce((acc, a) => {
+        // Filter out resolved alerts for users
+        const activeAlerts = res.data.filter(a => a.status === "active");
+        setAlerts(activeAlerts);
+        setFilteredAlerts(activeAlerts);
+
+        // Compute stats only for active alerts
+        const total = activeAlerts.length;
+        const byCategory = activeAlerts.reduce((acc, a) => {
           acc[a.category] = (acc[a.category] || 0) + 1;
           return acc;
         }, {});
 
-        setStats({ total, active, resolved, byCategory });
+        setStats({ total, active: total, byCategory });
       } catch (err) {
         console.error("Error fetching alerts:", err);
       }
     };
-
     fetchAlerts();
   }, []);
+
+  const handleCategoryChange = (e) => {
+    const selected = e.target.value;
+    setCategoryFilter(selected);
+    if (selected === "all") {
+      setFilteredAlerts(alerts);
+    } else {
+      setFilteredAlerts(alerts.filter(a => a.category === selected));
+    }
+  };
 
   const categoryData = Object.entries(stats.byCategory).map(([cat, count]) => ({
     name: cat.replace("_", " "),
@@ -55,6 +68,21 @@ function UserAlerts() {
       <div className="alerts-container">
         <h2 className="page-title">Community Alerts Dashboard</h2>
 
+        {/* Category Filter */}
+        <div className="filter-section">
+          <label htmlFor="categoryFilter">Filter by Category:</label>
+          <select
+            id="categoryFilter"
+            value={categoryFilter}
+            onChange={handleCategoryChange}
+          >
+            <option value="all">All</option>
+            {Object.keys(stats.byCategory).map(cat => (
+              <option key={cat} value={cat}>{cat.replace("_", " ")}</option>
+            ))}
+          </select>
+        </div>
+
         {/* Stats Cards */}
         <div className="stats-grid">
           <div className="stat-card total">
@@ -64,10 +92,6 @@ function UserAlerts() {
           <div className="stat-card active">
             <h3>Active</h3>
             <p>{stats.active}</p>
-          </div>
-          <div className="stat-card resolved">
-            <h3>Resolved</h3>
-            <p>{stats.resolved}</p>
           </div>
         </div>
 
@@ -100,7 +124,7 @@ function UserAlerts() {
           <div className="chart-card">
             <h3>Alerts Over Time</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={alerts.map(a => ({
+              <BarChart data={filteredAlerts.map(a => ({
                 date: new Date(a.created_at).toLocaleDateString(),
                 count: 1
               }))}>
@@ -115,38 +139,11 @@ function UserAlerts() {
           </div>
         </div>
 
-        {/* Table */}
-        <div className="table-card">
-          <h3>Latest Alerts</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {alerts.slice(0, 10).map((a) => (
-                <tr key={a.alertId}>
-                  <td>{a.category.replace("_", " ")}</td>
-                  <td>{a.name}</td>
-                  <td className={a.status === "active" ? "status-active" : "status-resolved"}>
-                    {a.status}
-                  </td>
-                  <td>{new Date(a.created_at).toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
         {/* Alert Cards */}
         <div className="cards-section">
           <h3>All Alerts</h3>
           <div className="alerts-grid">
-            {alerts.map((a) => (
+            {filteredAlerts.map((a) => (
               <div key={a.alertId} className="alert-card">
                 <div className="alert-card-header">
                   <span className="alert-category">{a.category.replace("_", " ")}</span>
@@ -161,7 +158,8 @@ function UserAlerts() {
                 </small>
                 <button
                   style={{ color: "#e74c3c" }}
-                  onClick={() => navigate(`/alerts/${a.alertId}`)}>View Details
+                  onClick={() => navigate(`/alerts/${a.alertId}`)}>
+                  View Details
                 </button>
               </div>
             ))}
