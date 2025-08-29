@@ -29,6 +29,10 @@ function UserDashboard() {
     navigate('/reporting-tip');
   };
 
+  const handleContactAuthorities = () => {
+    navigate('/contact-authorities');
+  };
+
 
   return (
     <div className="amber-alert-page">
@@ -47,7 +51,7 @@ function UserDashboard() {
       <main className="main-content">
 
         <div className="sidebar-buttons">
-          <button className="sidebar-btn red"><span className="btn-text">Contact Authorities</span></button>
+          <button className="sidebar-btn red" onClick={handleContactAuthorities}><span className="btn-text">Contact Authorities</span></button>
           <button className="sidebar-btn red" onClick={handleCreateAlert}><span className="btn-text"> Create an alert</span></button>
           <button className="sidebar-btn red"><span className="btn-text">View all Alerts</span></button>
           <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text">Report Tip</span></button>

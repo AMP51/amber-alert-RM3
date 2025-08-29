@@ -54,11 +54,20 @@ const updateRecord = (tableName, updates, whereClause) => {
       }
     });
   });
-};
 
+};
+const queryRecords = (query, params = []) => {
+  return new Promise((resolve, reject) => {
+    pool.query(query, params, (err, results) => {
+      if (err) return reject(err);
+      resolve(results);
+    });
+  });
+};
 module.exports = {
   createTable,
   checkRecordExists,
   insertRecord,
   updateRecord,
+  queryRecords,
 };

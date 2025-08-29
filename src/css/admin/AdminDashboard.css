@@ -57,6 +57,11 @@
   color: #212529;
 }
 
+.section-buttons {
+  display: flex;
+  gap: 12px;
+}
+
 .section-btn {
   background-color: #ae0000;
   color: #ffffff;
