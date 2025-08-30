@@ -21,10 +21,6 @@ function UserDashboard() {
     checkAuth();
   }, [navigate]);
 
-  const handleReportingTip = () => {
-    navigate('/reporting-tip');
-  };
-
   const handleForum = () => {
     navigate('/forum');
   };
@@ -46,7 +42,6 @@ function UserDashboard() {
         <div className="sidebar-buttons">
           <button className="sidebar-btn red" onClick={handleViewAllAlerts}><span className="btn-text">View all Alerts</span></button>
           <button className="sidebar-btn red" onClick={handleForum}><span className="btn-text">Forum</span></button>
-          <button className="sidebar-btn red" onClick={handleReportingTip}><span className="btn-text">Report Tip</span></button>
           <button className="sidebar-btn red" onClick={handleContactAuthorities}><span className="btn-text">Contact Authorities</span></button>
           <button className="sidebar-btn red"><span className="btn-text">Helpful Resources</span></button>
           <button className="sidebar-btn red"><span className="btn-text">About Us</span></button>

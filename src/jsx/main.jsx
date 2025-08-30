@@ -25,10 +25,11 @@ import ContactDetails from './admin/contact/ContactDetails.jsx';
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import Forum from './Forum.jsx';
-import ReportingTip from './ReportingTip.jsx';
 import ContactAuthorities from './ContactAuthorities.jsx';
 import UserAlerts from './UserAlerts.jsx';
 import UserAlertDetails from './UserAlertDetails.jsx';
+import UserTips from './UserTips.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -55,11 +56,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<AmberAlert />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forum" element={<Forum />} />
-        <Route path="/reporting-tip" element={<ReportingTip />} />
         <Route path="/contact-authorities" element={<ContactAuthorities />} />
         <Route path="/view/all/alerts" element={<UserAlerts />} />
         <Route path="/alerts/:alertId" element={<UserAlertDetails />} />
-
+        <Route path="/report-tip/:alertId" element={<UserTips />} />
 
       </Routes>
     </BrowserRouter>

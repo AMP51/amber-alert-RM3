@@ -161,6 +161,11 @@ function UserAlerts() {
                   onClick={() => navigate(`/alerts/${a.alertId}`)}>
                   View Details
                 </button>
+                <button
+                  style={{ color: "#e74c3c" }}
+                  onClick={() => navigate(`/report-tip/${a.alertId}`)}>
+                  Report Tip
+                </button>
               </div>
             ))}
           </div>

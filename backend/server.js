@@ -11,6 +11,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const seedUsers = require('./seeders/seedUsers');
+const tipRoutes = require("./routes/tipRoutes");
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use("/", alertRoutes);
 app.use("/", messageRoutes);
 app.use("/", chatRoutes);
 app.use("/", contactRoutes);
+app.use("/", tipRoutes);
 
 app.get("/", (req, res) => {
   res.json({ status: "database is connected (Amber Alert)" });
