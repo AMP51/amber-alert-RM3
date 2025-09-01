@@ -1,8 +1,9 @@
-import '../css/lrfLayout.css';
-import logo from '../assets/logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import logo from '../assets/logo.jpg';
+import '../css/lrfLayout.css';
+
 
 function Register() {
   const navigate = useNavigate();
