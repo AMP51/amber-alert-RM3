@@ -25,12 +25,10 @@ function UserAlerts() {
       try {
         const res = await axios.get("http://localhost:8080/alerts", { withCredentials: true });
 
-        // Filter out resolved alerts for users
         const activeAlerts = res.data.filter(a => a.status === "active");
         setAlerts(activeAlerts);
         setFilteredAlerts(activeAlerts);
 
-        // Compute stats only for active alerts
         const total = activeAlerts.length;
         const byCategory = activeAlerts.reduce((acc, a) => {
           acc[a.category] = (acc[a.category] || 0) + 1;

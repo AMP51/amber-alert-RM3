@@ -4,17 +4,6 @@ h2{
     margin-bottom: 2rem;
 }
 
-.contact-details-box {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 1.5rem 2rem;
-    line-height: 1.6;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 2rem;
-}
-
 .contact-details-box p {
     margin: 0.5rem 0;
 }

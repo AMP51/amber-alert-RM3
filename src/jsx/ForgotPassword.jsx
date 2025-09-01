@@ -1,7 +1,8 @@
-import '../css/lrfLayout.css';
-import logo from '../assets/logo.jpg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import logo from '../assets/logo.jpg';
+import '../css/lrfLayout.css';
+
 
 function ForgotPassword() {
   const [resetSuccess, setResetSuccess] = useState(false);

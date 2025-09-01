@@ -1,9 +1,9 @@
-import '../../../css/admin/AdminAlert.css';
-import Header from "../../../components/Header.jsx";
-import Footer from "../../../components/Footer.jsx";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import '../../../css/admin/AdminAlert.css';
+import Header from "../../../components/Header.jsx";
+import Footer from "../../../components/Footer.jsx";
 
 function AdminAlert() {
     const [step, setStep] = useState(1);

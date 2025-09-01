@@ -22,6 +22,9 @@ import ViewAlert from './admin/Alerts/ViewAlert.jsx';
 import Message from './admin/Message/Message.jsx';
 import Contact from './admin/contact/Contact.jsx';
 import ContactDetails from './admin/contact/ContactDetails.jsx';
+import AdminTips from "./admin/tips/AdminTips.jsx";
+import AdminTipDetails from "./admin/tips/AdminTipDetails.jsx";
+
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import Forum from './Forum.jsx';
@@ -44,13 +47,20 @@ createRoot(document.getElementById('root')).render(
 
         {/* AdminRoutes */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        {/* AdminAlertRoutes */}
         <Route path="/admin-view/all/alerts" element={<ViewAllAlerts />} />
         <Route path="/admin-alert" element={<AdminAlert />} />
         <Route path="/update-alert/:alertId/edit" element={<UpdateAlert />} />
         <Route path="/view-alert/:alertId/view" element={<ViewAlert />} />
+        {/* AdminMessageRoutes */}
         <Route path="/admin/message" element={<Message />} />
+        {/* AdminContactRoutes */}
         <Route path="/admin/contact" element={<Contact />} />
         <Route path="/admin/contact/:id" element={<ContactDetails />} />
+        {/* AdminTipRoutes */}
+        <Route path="/admin/tips" element={<AdminTips />} />
+        <Route path="/admin/tips/:tipId" element={<AdminTipDetails />} />
+        {/* AdminRoutes */}
 
         {/* SortThisRoutesOut */}
         <Route path="/" element={<AmberAlert />} />

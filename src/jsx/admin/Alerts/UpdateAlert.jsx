@@ -1,9 +1,9 @@
-import '../../../css/admin/AdminAlert.css';
-import Header from "../../../components/Header.jsx";
-import Footer from "../../../components/Footer.jsx";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import '../../../css/admin/AdminAlert.css';
+import Header from "../../../components/Header.jsx";
+import Footer from "../../../components/Footer.jsx";
 
 function UpdateAlert() {
     const { alertId } = useParams();
