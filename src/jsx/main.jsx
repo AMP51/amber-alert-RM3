@@ -22,6 +22,9 @@ import ViewAlert from './admin/Alerts/ViewAlert.jsx';
 import Message from './admin/Message/Message.jsx';
 import Contact from './admin/contact/Contact.jsx';
 import ContactDetails from './admin/contact/ContactDetails.jsx';
+import AdminTips from "./admin/tips/AdminTips.jsx";
+import AdminTipDetails from "./admin/tips/AdminTipDetails.jsx";
+
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import Forum from './Forum.jsx';
@@ -51,6 +54,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin/message" element={<Message />} />
         <Route path="/admin/contact" element={<Contact />} />
         <Route path="/admin/contact/:id" element={<ContactDetails />} />
+        <Route path="/admin/tips" element={<AdminTips />} />
+        <Route path="/admin/tips/:tipId" element={<AdminTipDetails />} />
 
         {/* SortThisRoutesOut */}
         <Route path="/" element={<AmberAlert />} />

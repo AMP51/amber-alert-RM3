@@ -47,9 +47,10 @@ function AdminDashboardPage() {
             <h2>Admin Alert Management</h2>
             <div className="section-buttons">
               <button className="section-btn" onClick={handleCreateAnAlert}>Create An Alert</button>
-              <button className="section-btn" onClick={() => navigate(`/admin-view/all/alerts`)}>View All Alerts</button>
+              <button className="section-btn" onClick={() => navigate(`/admin-view/all/alerts`)}>Alerts</button>
               <button className="section-btn" onClick={() => navigate(`/admin/message`)}>Message</button>
               <button className="section-btn" onClick={() => navigate(`/admin/contact`)}>Contacts</button>
+              <button className="section-btn" onClick={() => navigate(`/admin/tips`)}>Tips</button>
 
             </div>
           </div>
