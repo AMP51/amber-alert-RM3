@@ -37,13 +37,18 @@ function AdminAlert() {
 
         if (category === "missing_vehicle") alertData.vehicleType = vehicleType;
         if (category === "suspicious_activity") alertData.activityDesc = activityDesc;
+        if (new Date(time) > new Date()) {
+            alert("Future dates are not allowed.");
+
+            return;
+        }
 
         try {
             await axios.post("http://localhost:8080/alerts", alertData, { withCredentials: true });
             alert("Alert created successfully!");
             navigate("/admin-dashboard");
 
-            // Reset form
+            {/*Reset form*/ }
             setStep(1);
             setCategory("");
             setName("");
@@ -70,6 +75,15 @@ function AdminAlert() {
         if (category === "other") return "Description";
         return "Description of Person and Situation";
     };
+
+    const getCurrentDateTimeLocal = () => {
+        const now = new Date();
+        now.setSeconds(0, 0);
+        const offset = -now.getTimezoneOffset();
+        const adjusted = new Date(now.getTime() + offset * 60000);
+        return adjusted.toISOString().slice(0, 16);
+    };
+
 
     return (
         <div className="body-container">
@@ -145,6 +159,7 @@ function AdminAlert() {
                         className="time-input"
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
+                        max={getCurrentDateTimeLocal()}
                         required
                     />
 
