@@ -7,6 +7,9 @@ import '../css/ForumPage.css';
 import '../components/Footer.jsx'
 import '../components/Header.jsx'
 
+import 'leaflet/dist/leaflet.css';
+
+
 {/* AuthPages */ }
 import Login from './Login.jsx';
 import Register from './Register.jsx';

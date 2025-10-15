@@ -31,6 +31,7 @@ function ViewAlert() {
                 <p><strong>Category:</strong> {alert.category}</p>
                 <p><strong>Status:</strong> {alert.status}</p>
                 <p><strong>Time:</strong> {alert.timeOfDisappearance}</p>
+                <p><strong>Location:</strong> {alert.address}</p>
                 <p><strong>Description:</strong> {alert.description}</p>
                 {alert.image && <img src={alert.image} alt="Alert" style={{ maxWidth: '250px' }} />}
             </div>
