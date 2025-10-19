@@ -1,19 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import '../css/lrfLayout.css'
+import '../css/lrfLayout.css';
 import '../css/Dashboard.css';
 import '../css/ForumPage.css';
-import '../components/Footer.jsx'
-import '../components/Header.jsx'
+import '../components/Footer.jsx';
+import '../components/Header.jsx';
 
-{/* AuthPages */ }
+{/* AuthPages */}
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import ForgotPassword from './ForgotPassword.jsx';
 import Profile from './Profile.jsx';
 
-{/* Admin */ }
+{/* Admin */}
 import AdminDashboard from './admin/AdminDashboard.jsx';
 import ViewAllAlerts from './admin/Alerts/ViewAllAlerts.jsx';
 import AdminAlert from './admin/Alerts/AdminAlert.jsx';
@@ -25,6 +25,7 @@ import ContactDetails from './admin/contact/ContactDetails.jsx';
 import AdminTips from "./admin/tips/AdminTips.jsx";
 import AdminTipDetails from "./admin/tips/AdminTipDetails.jsx";
 
+{/* UserPages */}
 import AmberAlert from './AmberAlert.jsx';
 import UserDashboard from './UserDashboard.jsx';
 import Forum from './Forum.jsx';
@@ -32,8 +33,8 @@ import ContactAuthorities from './ContactAuthorities.jsx';
 import UserAlerts from './UserAlerts.jsx';
 import UserAlertDetails from './UserAlertDetails.jsx';
 import UserTips from './UserTips.jsx';
-
-
+import AboutPage from './AboutPage.jsx';
+import HelpfulResources from './HelpfulResources.jsx'; 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -60,9 +61,8 @@ createRoot(document.getElementById('root')).render(
         {/* AdminTipRoutes */}
         <Route path="/admin/tips" element={<AdminTips />} />
         <Route path="/admin/tips/:tipId" element={<AdminTipDetails />} />
-        {/* AdminRoutes */}
 
-        {/* SortThisRoutesOut */}
+        {/* UserRoutes */}
         <Route path="/" element={<AmberAlert />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/forum" element={<Forum />} />
@@ -70,8 +70,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/view/all/alerts" element={<UserAlerts />} />
         <Route path="/alerts/:alertId" element={<UserAlertDetails />} />
         <Route path="/report-tip/:alertId" element={<UserTips />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/helpful-resources" element={<HelpfulResources />} /> 
 
       </Routes>
     </BrowserRouter>
   </StrictMode>,
-)
+);
