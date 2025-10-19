@@ -4,8 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '../css/lrfLayout.css';
 import '../css/Dashboard.css';
 import '../css/ForumPage.css';
-import '../components/Footer.jsx';
-import '../components/Header.jsx';
+import '../components/Footer.jsx'
+import '../components/Header.jsx'
+
+import 'leaflet/dist/leaflet.css';
 
 {/* AuthPages */}
 import Login from './Login.jsx';

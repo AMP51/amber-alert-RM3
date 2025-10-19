@@ -48,6 +48,7 @@ function UserAlertDetails() {
           </div>
 
           <div className="alert-info">
+            <p><strong>Location:</strong> {(alert.address)}</p>
             <p><strong>Time of Disappearance:</strong> {new Date(alert.timeOfDisappearance).toLocaleString()}</p>
           </div>
 
