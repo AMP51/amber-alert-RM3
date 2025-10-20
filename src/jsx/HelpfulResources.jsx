@@ -44,6 +44,26 @@ function HelpfulResources() {
     }
   ];
 
+  // Support & contact info
+  const supportContacts = [
+    {
+      type: "Customer Support",
+      description: "Reach out for technical issues or account-related assistance.",
+      email: "support@amberalertapp.com",
+      phone: "+27 21 123 4567"
+    },
+    {
+      type: "Emergency Help Line",
+      description: "Available 24/7 for urgent safety matters.",
+      phone: "10111 (SAPS Crime Stop)"
+    },
+    {
+      type: "Feedback & Suggestions",
+      description: "Share your ideas or report bugs to improve the app.",
+      email: "feedback@amberalertapp.com"
+    }
+  ];
+
   return (
     <div className="helpful-resources-page">
       <Header />
@@ -64,6 +84,24 @@ function HelpfulResources() {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Support & Contact Section */}
+        <div className="support-section">
+          <h2 className="support-title">Support & Contact</h2>
+          <p className="support-subtitle">
+            If you need assistance, reach out to the following contacts:
+          </p>
+          <div className="support-grid">
+            {supportContacts.map((contact, index) => (
+              <div className="support-card" key={index}>
+                <h4 className="support-type">{contact.type}</h4>
+                <p className="support-description">{contact.description}</p>
+                {contact.email && <p>Email: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>}
+                {contact.phone && <p>Phone: {contact.phone}</p>}
+              </div>
+            ))}
+          </div>
         </div>
 
         <button className="back-btn" onClick={() => navigate('/user-dashboard')}>
