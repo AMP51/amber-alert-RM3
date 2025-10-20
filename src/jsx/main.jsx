@@ -37,6 +37,11 @@ import UserAlertDetails from './UserAlertDetails.jsx';
 import UserTips from './UserTips.jsx';
 import AboutPage from './AboutPage.jsx';
 import HelpfulResources from './HelpfulResources.jsx'; 
+
+{/* Anyone can access */}
+import AboutPageAccess from './AboutPageAccess.jsx';
+import HelpfulResourcesAccess from './HelpfulResourcesAccess.jsx'; 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -74,6 +79,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/report-tip/:alertId" element={<UserTips />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/helpful-resources" element={<HelpfulResources />} /> 
+
+        {/* Access to anyone */}
+        <Route path="/aboutus" element={<AboutPageAccess />} />
+        <Route path="/helpful/resources" element={<HelpfulResourcesAccess />} /> 
 
       </Routes>
     </BrowserRouter>

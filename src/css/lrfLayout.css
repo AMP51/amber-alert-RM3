@@ -129,6 +129,14 @@ body, html {
   box-sizing: border-box;
 }
 
+.amberalert-button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
 .lrf-button {
   display: flex;
   width: 250px;
